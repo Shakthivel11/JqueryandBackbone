@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.1/backbone-min.js"></script>
+    <title>Model</title>
+  </head>
+  <body>
+    <div>
+      <h3>Model example</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor tenetur
+        voluptas molestias laboriosam sint voluptatibus eligendi nobis officiis
+        repellendus dicta eveniet ad quia eos labore dolorem, reprehenderit
+        perferendis incidunt consequatur.
+      </p>
+    </div>
+    <script>
+      var Book = Backbone.Model.extend({ //----> In every "Model" backbone which can be create, validate, destroyed, and saved to the server
+        //using attributes like get,has,unset,on,save,fetch and destroy methods
+        defaults: {
+          title: "",
+          author: "",
+          year: 0,
+        },
+
+        validate: function (attributes) {
+          if (attributes.year < 0) {
+            return "Invalid year.";
+          }
+        },
+      });
+
+      var book = new Book({
+        title: "Half Hearted",
+        author: "Harper Lee",
+        year: 1950,
+      });
+
+      console.log(book.get("title")); 
+       book.set("year", 1950);
+      console.log(book.get("year")); 
+
+      book.on("change", function () {
+        console.log("Book attributes changed");
+      });
+      book.set("title", "Half Minded");
+
+      book.unset("author");
+      console.log(book.has("author")); 
+      console.log(book.toJSON());
+      book.save(); // Send the data to the server 
+      book.fetch(); // Retrieve the data from the server
+      book.destroy(); // Delete the book on the server
+    </script>
+  </body>
+</html>

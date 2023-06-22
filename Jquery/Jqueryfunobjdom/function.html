@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jqueryfunction</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <style>
+      #readyDemo {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="readyDemo"></div>
+
+    <a href="google.com" target="_blank">Google blank</a>
+    <a href="yahoo.com" target="_self">Google self</a>
+
+    <button>Click me!</button>
+    <ul id="item-list">
+      <li id="first-li">Coffee 
+        <a href="https://google.com">Google</a>
+        <div><a href="yahoo.com">Yahoo!</a></div>
+      </li>
+      <li>Milk</li>
+      <li>Tea</li>
+    </ul>
+
+    <script type="text/javascript">
+      console.log("on Line number 15");
+      $(document).ready(function () {
+        // console.log("Document is ready!!!");
+        //function
+        $("#readyDemo")
+          .text("Document was ready")
+          .css("color", "red")
+          .fadeIn("slow");
+
+        $("a[target='_self']").css("color", "red");
+        $("a[target='_blank']").css("color", "green");
+        $("a[href='yahoo.com']").text("Yahoo!");
+
+        $("button").click(function () {
+          $("#item-list").find("a").css('color','red')
+        });
+      });
+      console.log("on line number 20");
+    </script>
+  </body>
+</html>

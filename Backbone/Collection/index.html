@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.1/backbone-min.js"></script>
+    <title>Collection</title>
+  </head>
+  <body>
+    <div>
+      <h3>Collection example</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor tenetur
+        voluptas molestias laboriosam sint voluptatibus eligendi nobis officiis
+        repellendus dicta eveniet ad quia eos labore dolorem, reprehenderit
+        perferendis incidunt consequatur.
+      </p>
+    </div>
+    <script>
+      var Task = Backbone.Model.extend({
+        defaults: {
+          title: "",
+          completed: false,
+        },
+      });
+      //First we need the pass the object or fetching data model collection
+      //And we create an instance of the TaskList collection called tasks and createwith three tasks.
+
+      var TaskList = Backbone.Collection.extend({
+        model: Task, //---->go to line no 14 thia is called manipulate the data (model);
+      });
+
+      var tasks = new TaskList([
+        { title: "Task 1", completed: true },
+        { title: "Task 2", completed: false },
+        { title: "Task 3", completed: true },
+      ]);
+      var completedTasks = tasks.filter(function (task) {
+        return task.get("completed");
+      });
+      console.log("Completed Tasks:", completedTasks);
+
+      var taskTitles = tasks.map(function (task) {
+        return task.get("title");
+      });
+
+      console.log("Task Titles:", taskTitles);
+    </script>
+  </body>
+</html>

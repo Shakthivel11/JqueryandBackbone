@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jqueryfunction</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <style>
+      #readyDemo {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="readyDemo"></div>
+    <button>Click me!</button>
+    < id="item-list">
+      <li id="first-li">
+        Coffee
+        <a href="https://google.com">Google</a>
+        <div><a href="yahoo.com">Yahoo!</a></div>
+      </li>
+      <li>Milk</li>
+      <li>Tea</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+      <li>List Item</li>
+     <li>List Item</li>
+    </ul>
+
+    <script type="text/javascript">
+      console.log("On line number 42");
+      $(document).ready(function () {
+        $("#readyDemo").text("Document is ready");
+
+        $("button").click(function () {
+        //   //  .find() example
+        //   $("#item-list").find("a").css("color", "red");
+
+        //   // .children() example
+        //   $("#first-li").children("a").css("color", "red");
+
+        //   $("#first-li").find("a").css("color", "red");
+
+        //   // .closest() example
+        //   $("#first-li").closest("").css("color", "red");
+
+        //   //.parent() example
+        //   $("#inside-a-div").parent().css("border", "1px solid black");
+
+        //   //.next() example
+        //   $("#first-li").next().css("border", "1px solid black");
+        // });
+        // // prev() example
+        // $("#item-List 11:nth-child(2)").prev().css("border, 1px solid black");
+
+        // //siblings() example
+        // "#first-11".siblings().css("border", "1px solid black");
+
+        // //first() example
+        // $("li").first().css("border, 1px solid black");
+
+        //.last() example
+        $("li").last().css("border", "1px solid black");
+      });
+    });
+    console.log("on line number 20");
+      
+    </script>
+  </body>
+</html>

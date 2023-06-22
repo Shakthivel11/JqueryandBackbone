@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <title>Jqueryobject</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero nesciunt
+      exercitationem voluptates dolorem nostrum quas ipsam delectus maiores
+      nobis! Saepe dicta nesciunt suscipit culpa numquam distinctio nobis
+      consequuntur veritatis dolor.
+    </p>
+    <script>
+      $(document).ready(function () {
+        // Create a jQuery object using the selector
+        var $paragraph = $("p");
+
+        // Manipulate jQuery object
+        $paragraph.text("Text changed");
+        $paragraph.addClass("highlight");
+        $paragraph.removeClass("highlight")
+      });
+    </script>
+  </body>
+</html>
