@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.1/backbone-min.js"></script>
+    <title>Events</title>
+  </head>
+  <body>
+    <script>
+      var myObject = {};
+
+      _.extend(myObject, Backbone.Events);
+      function eventHandler1() {
+        console.log("Event 1 triggered!");
+      }
+     
+      function eventHandler2() {
+        console.log("Event 2 triggered!");
+      }
+
+      function eventHandler3(data) {
+        console.log("Event 3 triggered with data:", data);
+      }
+      
+      function eventHandler4(){
+        console.log("Event 4 triggered!")
+      }
+
+
+      // Subscribing to events using 'on'
+      myObject.on("event1", eventHandler1);
+      myObject.on("event2", eventHandler2);
+
+      // Triggering events using 'trigger'
+      myObject.trigger("event1"); 
+      myObject.trigger("event2"); 
+
+      // Subscribing to an event once using 'once'
+      myObject.once("event3", eventHandler3);
+
+      // Triggering the event multiple times
+      myObject.trigger("event3", "Hello"); 
+      myObject.trigger("event3", "World"); 
+
+      // Unsubscribing from events using 'off'
+      myObject.off("event1", eventHandler1);
+      myObject.trigger("event1"); 
+
+      myObject.once("event4",eventHandler4);
+
+      myObject.trigger("event4","Shakthi");
+      myObject.trigger("event4","vel")
+
+      myObject.off("event4",eventHandler4)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>Load data in Ajax</title>
+  </head>
+
+  <body>
+    <div id="div1"><h2>Load the data to the server</h2></div>
+    <button>Get external content</button>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("#div1").load(
+            "Text_file.txt",
+            function (statusTxt, xhr, responseTxt) {
+              if (statusTxt == success) {
+                alert("External data load successfully");
+
+                if (statusTxt == error)
+                  alert("Error:" + xhr.status +":"+ xhr.statusText);
+              }
+            }
+          );
+
+
+        });
+      });
+    </script>
+  </body>
+</html>

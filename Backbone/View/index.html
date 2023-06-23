@@ -10,8 +10,33 @@
 </head>
 <body>
     <div>
+        <div id="container"></divid>
         
     </div>
+    <script>
+        var SongView = Backbone.View.extend({
+
+            tagName:"span",
+
+            className:"song",
+
+            id:"1234",
+
+            attributes:{
+                "data-genre":"Jazz"
+            },
+
+            render:function(){
+                this.$el.html("Hello world");   //---->el is dom selected elements in jquery it is just a name.
+                return this;
+            }
+        });
+        // var songView = new SongView({el :"#container"});
+        var songView = new SongView();
+    
+
+        $("#container").html(songView.render().$el)
+    </script>
     
 </body>
 </html>
